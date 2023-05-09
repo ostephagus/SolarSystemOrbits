@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="BPhO logo.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="BPhO logo.jpg" />
+  </ItemGroup>
+
 </Project>
