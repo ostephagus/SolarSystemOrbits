@@ -9,4 +9,4 @@ ToDos and project management is in the projects tab.
 - Adaptive changing variables
 - Use LiveCharts until it is insufficient (hehe) - hopefully it can animate as well
 ### Backend computation in C++ (for earlier challenges) or CUDA, built along with c# for intercommunication with UI
-###Overleaf for paper - this will describe our computational solution
+### Overleaf for paper - this will describe our computational solution
