@@ -9,10 +9,12 @@
 
   <ItemGroup>
     <None Remove="BPhO logo.jpg" />
+    <None Remove="SolarSystem.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="BPhO logo.jpg" />
+    <Resource Include="SolarSystem.jpg" />
   </ItemGroup>
 
 </Project>

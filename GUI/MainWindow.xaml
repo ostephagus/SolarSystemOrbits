@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
+        SizeChanged="Window_SizeChanged"
         Title="Sam Glover / Adam Wiffen BPhO 2023" Height="450" Width="800">
     <Window.Resources>
         <Style x:Key="LargeButton" TargetType="Button">
             <Setter Property="Margin" Value="5 5 5 5" />
+        </Style>
+        <Style x:Key="ControlledFontSize" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="{Binding ReactiveFontSize}" />
         </Style>
     </Window.Resources>
     <Grid Margin="0 10 0 10">
@@ -29,22 +33,23 @@
         <Image Grid.Row="0" Grid.Column="3" Source="/BPhO logo.jpg" />
 
         <Button Style="{StaticResource LargeButton}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-            <local:ResizableCentredTextBox Text="Challenge 1 - a graph to verify Keppler's third law" />
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 1 - Graph to verify Keppler
+            s 3rd Law</TextBlock>
         </Button>
         <Button Style="{StaticResource LargeButton}" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
-            <local:ResizableCentredTextBox Text="Challenges 2 and 3 - 2D Heliocentric orbits plots" />
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenges 2 and 3 - 2D Heliocentric orbits plots</TextBlock>
         </Button>
         <Button Style="{StaticResource LargeButton}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-            <local:ResizableCentredTextBox Text="Challenge 4 - 3D Heliocentric orbits plots" />
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 4 - 3D Heliocentric orbits plots</TextBlock>
         </Button>
         <Button Style="{StaticResource LargeButton}" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
-            <local:ResizableCentredTextBox Text="Challenge 5 - Orbital angle vs time plot" />
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 5 - Orbital angle vs time plot</TextBlock>
         </Button>
         <Button Style="{StaticResource LargeButton}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
-            <local:ResizableCentredTextBox Text="Challenge 6 - Solar system spirograps" />
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 6 - Solar system spirographs</TextBlock>
         </Button>
         <Button Style="{StaticResource LargeButton}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
-            <local:ResizableCentredTextBox Text="Challenge 7 - Solar system plots relative to other planets" />
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 7 - Solar system relative to other planets</TextBlock>
         </Button>
         <local:ResizableCentredTextBox Text="Made By Sam Glover and Adam Wiffen" Grid.Row="5" Grid.ColumnSpan="4" />
     </Grid>
