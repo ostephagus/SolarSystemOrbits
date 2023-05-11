@@ -26,7 +26,7 @@
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
             <Button>Select units</Button>
-            <Button></Button>
+            <Button Command="">Select planets</Button>
         </StackPanel>
         
         <local:ResizableCentredTextBox Text="Made by Sam Glover and Adam Wiffen" Grid.Row="2" Grid.Column="0" />

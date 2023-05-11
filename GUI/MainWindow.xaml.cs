@@ -79,6 +79,23 @@ namespace GUI
             challengeWindow.Show();
         }
     }
+
+    public class Command_OpenPlanetSelectionDialog : ICommand
+    {
+        public event EventHandler CanExecuteChanged;
+
+        public bool CanExecute (object parameter) //Return true since the command can always execute
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            PlanetSelectionPopup selectionDialog = new PlanetSelectionPopup((Dictionary<SolarSystemBody, bool>)parameter);
+            selectionDialog.Show();
+        }
+    }
+
     public class Command_CloseWindow : ICommand
     {
         public event EventHandler CanExecuteChanged;

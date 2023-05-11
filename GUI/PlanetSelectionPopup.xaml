@@ -1,0 +1,21 @@
+﻿<Window x:Class="GUI.PlanetSelectionPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="Select Solar system bodies" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner">
+    <!--<StackPanel>
+        <CheckBox Visibility="Hidden" Name="SunCheckBox">Sun</CheckBox>
+        <CheckBox Visibility="Hidden" Name="MercuryCheckBox">Mercury</CheckBox>
+        <CheckBox Visibility="Hidden" Name="VenusCheckBox">Venus</CheckBox>
+        <CheckBox Visibility="Hidden" Name="EarthCheckBox">Earth</CheckBox>
+        <CheckBox Visibility="Hidden" Name="MarsCheckBox">Mars</CheckBox>
+        <CheckBox Visibility="Hidden" Name="JupiterCheckBox">Jupiter</CheckBox>
+        <CheckBox Visibility="Hidden" Name="SaturnCheckBox">Saturn</CheckBox>
+        <CheckBox Visibility="Hidden" Name="UranusCheckBox">Uranus</CheckBox>
+        <CheckBox Visibility="Hidden" Name="NeptuneCheckBox">Neptune</CheckBox>
+        <CheckBox Visibility="Hidden" Name="PlutoCheckBox">Pluto</CheckBox>
+    </StackPanel>-->
+</Window>

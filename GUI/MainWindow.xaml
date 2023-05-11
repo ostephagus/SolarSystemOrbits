@@ -50,6 +50,7 @@
         <Button Style="{StaticResource LargeButton}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
             <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 7 - Solar system relative to other planets</TextBlock>
         </Button>
-        <local:ResizableCentredTextBox Text="Made By Sam Glover and Adam Wiffen" Grid.Row="5" Grid.ColumnSpan="4" />
+        <local:ResizableCentredTextBox Text="Made By Sam Glover and Adam Wiffen" Grid.Row="5" Grid.ColumnSpan="3" />
+        <Button Grid.Row="5" Grid.Column="3" Margin="0 0 5 0">Options</Button> <!-- Add options for accessibility-->
     </Grid>
 </Window>
