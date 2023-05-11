@@ -84,7 +84,7 @@ namespace GUI
     {
         public event EventHandler CanExecuteChanged;
 
-        public bool CanExecute (object parameter) //Return true since the command can always execute
+        public bool CanExecute(object parameter) //Return true since the command can always execute
         {
             return true;
         }

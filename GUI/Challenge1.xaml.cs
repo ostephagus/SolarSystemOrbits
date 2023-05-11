@@ -19,17 +19,39 @@ namespace GUI
     /// </summary>
     public partial class Challenge1 : Window
     {
+        private Dictionary<SolarSystemBody, bool> solarSystemBodies = new Dictionary<SolarSystemBody, bool>();
         public Command_CloseWindow Command_CloseWindow { get; } = new Command_CloseWindow();
+        public Command_OpenPlanetSelectionDialog Command_OpenPlanetSelectionDialog { get; } = new Command_OpenPlanetSelectionDialog();
 
         public Challenge1()
         {
             InitializeComponent();
             DataContext = this;
+            InitialiseDictionary();
+        }
+
+        public void InitialiseDictionary()
+        {
+            solarSystemBodies.Clear(); //For reset button
+            for (int i = 1; i <= 8; i++)
+            {
+                solarSystemBodies.Add((SolarSystemBody)i, true); //Set all the planets and select all
+            }
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Command_CloseWindow.Execute(this); //On click of CloseButton, execute the CloseWindow command with the current window as parameter.
+        }
+
+        private void PlanetsSelectButton_Click(object sender, RoutedEventArgs e)
+        {
+            Command_OpenPlanetSelectionDialog.Execute(solarSystemBodies);
+        }
+
+        private void PlanetsResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            InitialiseDictionary();
         }
     }
 }
