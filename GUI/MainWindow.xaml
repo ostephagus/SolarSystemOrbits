@@ -32,9 +32,8 @@
         <local:ResizableCentredTextBox Text="Welcome to our Computational challenge 2023 entry!" Grid.ColumnSpan="3" VerticalAlignment="Center"/>
         <Image Grid.Row="0" Grid.Column="3" Source="/BPhO logo.jpg" />
 
-        <Button Style="{StaticResource LargeButton}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 1 - Graph to verify Keppler
-            s 3rd Law</TextBlock>
+        <Button Style="{StaticResource LargeButton}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding Command_ChangeToWindow1}">
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 1 - Graph to verify Keppler's 3rd Law</TextBlock>
         </Button>
         <Button Style="{StaticResource LargeButton}" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
             <TextBlock Style="{DynamicResource ControlledFontSize}">Challenges 2 and 3 - 2D Heliocentric orbits plots</TextBlock>

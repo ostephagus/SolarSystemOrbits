@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.710" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="BPhO logo.jpg" />
     <Resource Include="SolarSystem.jpg" />
   </ItemGroup>
