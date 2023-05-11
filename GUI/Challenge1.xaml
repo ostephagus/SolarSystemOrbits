@@ -7,9 +7,6 @@
         xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
         Title="Challenge 1 - Graph to verify Keppler's 3rd Law" Height="450" Width="800">
-    <Window.DataContext>
-        <local:ViewModel />
-    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" MaxHeight="60" />
@@ -21,7 +18,17 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <local:ResizableCentredTextBox Text="Graph to verify Keppler's 3rd Law" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
-        <lvc:CartesianChart Series="{Binding Series}" Grid.Row="1" Grid.Column="0" />
+        <lvc:CartesianChart Series="{Binding Series}" Grid.Row="1" Grid.Column="0">
+            <lvc:CartesianChart.DataContext>
+                <local:ViewModel />
+            </lvc:CartesianChart.DataContext>
+        </lvc:CartesianChart>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+            <Button>Select units</Button>
+            <Button></Button>
+        </StackPanel>
+        
         <local:ResizableCentredTextBox Text="Made by Sam Glover and Adam Wiffen" Grid.Row="2" Grid.Column="0" />
         <Button Grid.Row="2" Grid.Column="1" Name="CloseButton" Click="CloseButton_Click">
             <local:ResizableCentredTextBox Text="Close" />
