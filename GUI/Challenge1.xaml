@@ -20,7 +20,7 @@
         <local:ResizableCentredTextBox Text="Graph to verify Keppler's 3rd Law" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
         <lvc:CartesianChart Series="{Binding Series}" Grid.Row="1" Grid.Column="0">
             <lvc:CartesianChart.DataContext>
-                <local:ViewModel />
+                <local:Challenge1PlotViewModel />
             </lvc:CartesianChart.DataContext>
         </lvc:CartesianChart>
 

@@ -6,16 +6,9 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Title="Select Solar system bodies" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner">
-    <!--<StackPanel>
-        <CheckBox Visibility="Hidden" Name="SunCheckBox">Sun</CheckBox>
-        <CheckBox Visibility="Hidden" Name="MercuryCheckBox">Mercury</CheckBox>
-        <CheckBox Visibility="Hidden" Name="VenusCheckBox">Venus</CheckBox>
-        <CheckBox Visibility="Hidden" Name="EarthCheckBox">Earth</CheckBox>
-        <CheckBox Visibility="Hidden" Name="MarsCheckBox">Mars</CheckBox>
-        <CheckBox Visibility="Hidden" Name="JupiterCheckBox">Jupiter</CheckBox>
-        <CheckBox Visibility="Hidden" Name="SaturnCheckBox">Saturn</CheckBox>
-        <CheckBox Visibility="Hidden" Name="UranusCheckBox">Uranus</CheckBox>
-        <CheckBox Visibility="Hidden" Name="NeptuneCheckBox">Neptune</CheckBox>
-        <CheckBox Visibility="Hidden" Name="PlutoCheckBox">Pluto</CheckBox>
-    </StackPanel>-->
+    <StackPanel Margin="5 5 5 5">
+        <TextBlock FontSize="18" Margin="10 10 10 10">Select the planets to include in the plot:</TextBlock>
+        <StackPanel Name="planetsStackPanel"></StackPanel> <!--This StackPanel will by dynamically filled with CheckBox children.-->
+        <Button Name="OKButton" Click="OKButton_Click">OK</Button>
+    </StackPanel>
 </Window>

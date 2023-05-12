@@ -46,12 +46,17 @@ namespace GUI
 
         private void PlanetsSelectButton_Click(object sender, RoutedEventArgs e)
         {
-            Command_OpenPlanetSelectionDialog.Execute(solarSystemBodies);
+            MakePlanetSelectionAsync(); //Asynchronously wait for the user to make their planet selection. Handled by the below Async method
+        }
+
+        private async void MakePlanetSelectionAsync()
+        {
+            solarSystemBodies = await Command_OpenPlanetSelectionDialog.ExecuteWithReturnAsync(solarSystemBodies); //Run the Async ICommmand.
         }
 
         private void PlanetsResetButton_Click(object sender, RoutedEventArgs e)
         {
-            InitialiseDictionary();
+            InitialiseDictionary(); //Re-run the InitialiseDictionary method to reset all the values to true, selecting them all
         }
     }
 }

@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 
 namespace GUI
 {
-    public class ViewModel
+    public class Challenge1PlotViewModel
     {
         public ISeries[] Series { get; set; } = new ISeries[]
         {
-            new LineSeries<double>
+            new ScatterSeries<double>
             {
-                Values = new double[] {2, 1, 3, 5, 3, 4, 6},
-                Fill = null
+                Values = new ObservableCollection<double> {1.4, 1.6, 1.8, 2.0, 3.44},
+                Name = "Keppler 3 Correlation"
             }
         };
     }
