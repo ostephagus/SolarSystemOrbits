@@ -65,18 +65,35 @@ namespace GUI
             return true;
         }
 
-        public void Execute(object parameter) //Show a new instance of Challenge1
+        //public void Execute(object parameter) //Show a new instance of Challenge1
+        //{
+        //    Challenge1 challengeWindow = new Challenge1();
+        //    Window mainWindow = Application.Current.MainWindow;
+
+        //    // Set the position of the Challenge1 window to match the position of the MainWindow
+        //    challengeWindow.Left = mainWindow.Left;
+        //    challengeWindow.Top = mainWindow.Top;
+
+        //    // Close the MainWindow and show the Challenge1 window
+        //    mainWindow.Close();
+        //    challengeWindow.Show();
+        //}
+
+        public void Execute(object parameter)
         {
-            Challenge1 challengeWindow = new Challenge1();
+            Window challengeHolder = new Window();
             Window mainWindow = Application.Current.MainWindow;
 
             // Set the position of the Challenge1 window to match the position of the MainWindow
-            challengeWindow.Left = mainWindow.Left;
-            challengeWindow.Top = mainWindow.Top;
+            challengeHolder.Left = mainWindow.Left;
+            challengeHolder.Top = mainWindow.Top;
 
             // Close the MainWindow and show the Challenge1 window
+            challengeHolder.Height = mainWindow.Height;
+            challengeHolder.Width = mainWindow.Width;
+            challengeHolder.Content = new Challenge1UserControl();
             mainWindow.Close();
-            challengeWindow.Show();
+            challengeHolder.Show();
         }
     }
 

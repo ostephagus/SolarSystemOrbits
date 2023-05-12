@@ -28,6 +28,7 @@
             <Button>Select units</Button>
             <Button Name="PlanetsSelectButton" Click="PlanetsSelectButton_Click">Select planets</Button>
             <Button Name="PlanetsResetButton" Click="PlanetsResetButton_Click">Reset selected planets</Button>
+            <CheckBox Name="LineOfBestFitCheckBox" IsChecked="True">Line of best fit</CheckBox>
         </StackPanel>
         
         <local:ResizableCentredTextBox Text="Made by Sam Glover and Adam Wiffen" Grid.Row="2" Grid.Column="0" />
