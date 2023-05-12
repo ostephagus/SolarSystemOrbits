@@ -32,7 +32,7 @@ namespace GUI
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public Command_ChangeToWindow1 Command_ChangeToWindow1 { get; } = new Command_ChangeToWindow1();
+        private Command_ChangeToWindow1 Command_ChangeToWindow1 { get; } = new Command_ChangeToWindow1();
 
         private const int fontSizeDivisor = 50;
 

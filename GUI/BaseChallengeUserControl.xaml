@@ -17,13 +17,14 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <local:ResizableCentredTextBox x:Name="TitleTextBox" Text="Placeholder title" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
-        <ContentControl Name="ChartHolder" Grid.Row="1" Grid.Column="0" />
-        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Name="OptionsStackPanel">
-            <Label>Chart Options:</Label>
+        <ContentControl Name="chartHolder" Grid.Row="1" Grid.Column="0" />
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Name="optionsStackPanel">
+            <local:ResizableCentredTextBox Text="Chart Options" />
+            <Button Name="unitsSelectionButton">Select units</Button>
         </StackPanel>
 
         <local:ResizableCentredTextBox Text="Made by Sam Glover and Adam Wiffen" Grid.Row="2" Grid.Column="0" />
-        <Button Grid.Row="2" Grid.Column="1" Name="CloseButton">
+        <Button Grid.Row="2" Grid.Column="1" Name="closeButton">
             <local:ResizableCentredTextBox Text="Close" />
         </Button>
     </Grid>
