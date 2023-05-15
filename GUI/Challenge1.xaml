@@ -32,7 +32,7 @@
         </StackPanel>
         
         <local:ResizableCentredTextBox Text="Made by Sam Glover and Adam Wiffen" Grid.Row="2" Grid.Column="0" />
-        <Button Grid.Row="2" Grid.Column="1" Name="CloseButton" Click="CloseButton_Click">
+        <Button Grid.Row="2" Grid.Column="1" Name="CloseButton" Command="{Binding Command_CloseWindow}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
             <local:ResizableCentredTextBox Text="Close" />
         </Button>
     </Grid>
