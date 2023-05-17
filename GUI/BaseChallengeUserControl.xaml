@@ -24,7 +24,7 @@
         </StackPanel>
 
         <local:ResizableCentredTextBox Text="Made by Sam Glover and Adam Wiffen" Grid.Row="2" Grid.Column="0" />
-        <Button Grid.Row="2" Grid.Column="1" Name="closeButton">
+        <Button Grid.Row="2" Grid.Column="1" Name="CloseButton" Command="{Binding Command_ChangeWindow}" CommandParameter="{x:Type local:HomeScreen}">
             <local:ResizableCentredTextBox Text="Close" />
         </Button>
     </Grid>

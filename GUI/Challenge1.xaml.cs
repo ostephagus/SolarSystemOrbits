@@ -21,6 +21,8 @@ namespace GUI
     {
         private Dictionary<SolarSystemBody, bool> solarSystemBodies = new Dictionary<SolarSystemBody, bool>();
         public Command_CloseWindow Command_CloseWindow { get; } = new Command_CloseWindow();
+
+        public Command_ChangeWindow Command_ChangeWindow { get; } = new Command_ChangeWindow();
         public Command_OpenPlanetSelectionDialog Command_OpenPlanetSelectionDialog { get; } = new Command_OpenPlanetSelectionDialog();
 
         public Challenge1()

@@ -56,6 +56,20 @@ namespace GUI
         }
     }
 
+    public class Command_ChangeWindow : ICommand
+    {
+        public event EventHandler CanExecuteChanged;
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            App.RaiseUserControlChanged(this, new UserControlChangeEventArgs((Type)parameter));
+        }
+    }
+
     public class Command_ChangeToWindow1 : ICommand
     {
         public event EventHandler CanExecuteChanged;

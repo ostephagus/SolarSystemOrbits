@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="GUI.HomeScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GUI"
+             mc:Ignorable="d"
+             SizeChanged="HomeScreen_SizeChanged"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="LargeButton" TargetType="Button">
+            <Setter Property="Margin" Value="5 5 5 5" />
+        </Style>
+        <Style x:Key="ControlledFontSize" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="{Binding ReactiveFontSize}" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="0 10 0 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <local:ResizableCentredTextBox Text="Welcome to our Computational challenge 2023 entry!" Grid.ColumnSpan="3" VerticalAlignment="Center"/>
+        <Image Grid.Row="0" Grid.Column="3" Source="/BPhO logo.jpg" />
+
+        <Button Style="{StaticResource LargeButton}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding Command_ChangeWindow}" CommandParameter="{x:Type local:Challenge1UserControl}">
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 1 - Graph to verify Keppler's 3rd Law</TextBlock>
+        </Button>
+        <Button Style="{StaticResource LargeButton}" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenges 2 and 3 - 2D Heliocentric orbits plots</TextBlock>
+        </Button>
+        <Button Style="{StaticResource LargeButton}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 4 - 3D Heliocentric orbits plots</TextBlock>
+        </Button>
+        <Button Style="{StaticResource LargeButton}" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 5 - Orbital angle vs time plot</TextBlock>
+        </Button>
+        <Button Style="{StaticResource LargeButton}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 6 - Solar system spirographs</TextBlock>
+        </Button>
+        <Button Style="{StaticResource LargeButton}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
+            <TextBlock Style="{DynamicResource ControlledFontSize}">Challenge 7 - Solar system relative to other planets</TextBlock>
+        </Button>
+        <local:ResizableCentredTextBox Text="Made By Sam Glover and Adam Wiffen" Grid.Row="5" Grid.ColumnSpan="3" />
+        <Button Grid.Row="5" Grid.Column="3" Margin="0 0 5 0">Options</Button>
+        <!-- Add options for accessibility-->
+    </Grid>
+</UserControl>
