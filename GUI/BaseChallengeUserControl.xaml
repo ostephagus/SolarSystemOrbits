@@ -9,7 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" MaxHeight="60" />
-            <RowDefinition Height="15*" />
+            <RowDefinition Height="18*" />
             <RowDefinition Height="*" MaxHeight="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -25,7 +25,7 @@
 
         <local:ResizableCentredTextBox Text="Made by Sam Glover and Adam Wiffen" Grid.Row="2" Grid.Column="0" />
         <Button Grid.Row="2" Grid.Column="1" Name="CloseButton" Command="{Binding Command_ChangeWindow}" CommandParameter="{x:Type local:HomeScreen}">
-            <local:ResizableCentredTextBox Text="Close" />
+            <local:ResizableCentredTextBox Text="Back" />
         </Button>
     </Grid>
 </UserControl>

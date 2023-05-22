@@ -21,16 +21,18 @@ namespace GUI
 
         public Challenge1UserControl() : base("Graph to verify Keppler's 3rd Law") //Set title via constructor
         {
-            SetUpGraph();
             AddButtons();
             InitialiseDictionary();
+            SetUpGraph();
         }
 
         public void SetUpGraph()
         {
-            Challenge1PlotViewModel viewModel = new Challenge1PlotViewModel();
+            Challenge1PlotViewModel viewModel = new Challenge1PlotViewModel(solarSystemBodies);
             CartesianChart graph = new CartesianChart();
             graph.Series = viewModel.Series;
+            graph.XAxes = new Axis[] { new Axis { Name = "(Semi-major axis a / AU)^3/2" } };
+            graph.YAxes = new Axis[] { new Axis { Name = "(Orbital period P / Years" } };
             chartHolder.Content = graph;
         }
 
