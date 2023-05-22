@@ -6,7 +6,7 @@
 #include <math.h>;
 using namespace std;
 
-float* __declspec(dllexport) challengeOne();//non cuda
+void __declspec(dllexport) challengeOne();//non cuda
 
 float* __declspec(dllexport) challengeTwo();// non cuda
 
@@ -24,7 +24,7 @@ float radius(float semimaj, float e, float theta) {
     return (semimaj * (1 - powf(e, 2))) / (1 - cosf(theta));
 }
 
-float* challengeOne() {
+void challengeOne(float *data) {
     float radii[8] = { 0.387, 0.723, 1, 1.523, 5.2, 9.58, 19.29, 30.25 };
     float periods[8] = { 0.24, 0.62, 1, 1.88, 11.86, 29.63, 84.75, 166.34 };
     float mean = 0;
@@ -39,16 +39,14 @@ float* challengeOne() {
         css += powf(periods[i] - mean, 2);
     }
 
-    float* d_out = (float*)malloc(sizeof(float) * 17);
     for (int i = 0; i < 8; i++) {
-        d_out[i] = radii[i];
+        data[i] = radii[i];
     }
     for (int i = 8; i < 16; i++) {
-        d_out[i] = periods[i%8];
+        data[i] = periods[i%8];
     }
     r2 = 1 - (rss / css);
-    d_out[16] = r2;
-    return d_out;
+    data[16] = r2;
 }
 
 float* challengeTwo(float semimaj, float e) {
