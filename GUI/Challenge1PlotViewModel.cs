@@ -10,6 +10,7 @@ namespace GUI
 {
     public class Challenge1PlotViewModel
     {
+
         private ISeries[] series;
 
         public ISeries[] Series { get => series; set => series = value; }
@@ -38,18 +39,14 @@ namespace GUI
             };
         }
 
-        [DllImport("kernel.dll", CallingConvention = CallingConvention.Cdecl)]
-        private extern static float[] challengeOne();
+        [DllImport("kernel20230522.dll")]
+        private static extern void challengeOne(float[] data);
 
         private (float[], float[], float) GetData()
         {
+            float[] data = new float[17];
+            challengeOne(data); //Get data by passing the float array by reference
 
-            float[] data = challengeOne();
-            if (data.Length != 17)
-            {
-                MessageBox.Show("The data received from backend is not in a recognisable form.", "Caution: unrecognised data", MessageBoxButton.OK, MessageBoxImage.Error);
-                return (new float[8], new float[8], 0f); //Return all zeros when data received is nonstandard
-            }
             float[] radii = data[0..7];
             float[] periods = data[8..15];
             float rSquared = data[16];
