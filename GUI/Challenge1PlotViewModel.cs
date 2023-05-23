@@ -39,8 +39,8 @@ namespace GUI
             };
         }
 
-        [DllImport("kernel20230522.dll")]
-        private static extern void challengeOne(float[] data);
+        [DllImport("kernel20230522.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void challengeOne([MarshalAs(UnmanagedType.LPArray, SizeConst = 17)] float[] data);
 
         private (float[], float[], float) GetData()
         {
