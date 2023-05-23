@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <iostream>
 #define _USE_MATH_DEFINES
-#include <math.h>;
+#include <math.h>
 using namespace std;
 extern "C" {
     void __declspec(dllexport) challengeOne();//non cuda
@@ -57,8 +57,7 @@ void challengeOne(float *data) {
 
 void challengeTwo(float* d_out, float semimaj, float e) {
     float dtheta = 0.002 * M_PI;
-    float ttheta = 2 * M_PI;
-
+    //float ttheta = 2 * M_PI;
     
     float theta = 0;
     float rad;
