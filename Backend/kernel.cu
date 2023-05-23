@@ -5,21 +5,27 @@
 #define _USE_MATH_DEFINES
 #include <math.h>;
 using namespace std;
-
-void __declspec(dllexport) challengeOne();//non cuda
-
-float* __declspec(dllexport) challengeTwo();// non cuda
-
-float* __declspec(dllexport) challengeThree(); //
-
-float* __declspec(dllexport) challengeFour(); //can be cuda as rotation matrix
-
-float* __declspec(dllexport) challengeFive(); //can be cuda as lots of samples
-
-float* __declspec(dllexport) challengeSix(); //can be cuda as image
-
-float* __declspec(dllexport) challengeSeven(); //can be cuda as image data
-
+extern "C" {
+    void __declspec(dllexport) challengeOne();//non cuda
+}
+extern "C" {
+void __declspec(dllexport) challengeTwo();// non cuda
+}
+extern "C" {
+void __declspec(dllexport) challengeThree(); //
+}
+extern "C" {
+void __declspec(dllexport) challengeFour(); //can be cuda as rotation matrix
+}
+extern "C" {
+void __declspec(dllexport) challengeFive(); //can be cuda as lots of samples
+}
+extern "C" {
+void __declspec(dllexport) challengeSix(); //can be cuda as image
+}
+extern "C" {
+void __declspec(dllexport) challengeSeven(); //can be cuda as image data
+}
 float radius(float semimaj, float e, float theta) {
     return (semimaj * (1 - powf(e, 2))) / (1 - cosf(theta));
 }
@@ -49,20 +55,21 @@ void challengeOne(float *data) {
     data[16] = r2;
 }
 
-float* challengeTwo(float semimaj, float e) {
+void challengeTwo(float* d_out, float semimaj, float e) {
     float dtheta = 0.002 * M_PI;
     float ttheta = 2 * M_PI;
 
     
     float theta = 0;
     float rad;
-    float* dout = (float*)malloc(4000 * sizeof(float));
     for (int i = 0; i < 2000; i++) {
         theta += dtheta;
         rad = radius(semimaj, e, theta);
-        dout[i] = rad * cosf(theta);
-        dout[i+1000] = rad * sinf(theta);
+        d_out[i] = rad * cosf(theta);
+        d_out[i+1000] = rad * sinf(theta);
     }
-    return dout;
+}
+
+void challengeThree(float* data) {
 
 }
