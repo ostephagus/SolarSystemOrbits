@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.InteropServices;
 using System.Windows;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
@@ -13,44 +12,53 @@ namespace GUI
 
         private ISeries[] series;
 
+        private Dictionary<SolarSystemBody, bool> solarSystemBodies;
+
+        const int NUMBER_OF_PLANETS = 8;
+
         public ISeries[] Series { get => series; set => series = value; }
 
         public Challenge1PlotViewModel(Dictionary<SolarSystemBody, bool> solarSystemBodies)
         {
-            (float[] radii, float[] periods, float rSquared) = GetData();
+            this.solarSystemBodies = solarSystemBodies;
+            (float[] radii, float[] periods) = GetData();
             series = GetSeries(radii, periods);
         }
 
         private ISeries[] GetSeries(float[] xarr, float[] yarr)
         {
-            int numOfPoints = xarr.Length;
             ObservableCollection<ObservablePoint> points = new ObservableCollection<ObservablePoint>();
-            for (int pointNum = 0; pointNum < numOfPoints; pointNum++)
+            for (int pointNum = 0; pointNum < NUMBER_OF_PLANETS; pointNum++)
             {
-                points.Add(new ObservablePoint(xarr[pointNum], yarr[pointNum]));
+                if (solarSystemBodies[(SolarSystemBody)(pointNum+1)])
+                {
+                    points.Add(new ObservablePoint(xarr[pointNum], yarr[pointNum]));
+                }
             }
             return new ISeries[]
             {
                 new ScatterSeries<ObservablePoint>()
                 {
                     Values = points,
-                    Name = "Keppler 3 correlation"
+                    Name = "Keppler 3 correlation",
+                    TooltipLabelFormatter = (chartPoint) => ((SolarSystemBody)(chartPoint.Context.Index + 1)).ToString()
                 }
             };
         }
 
-        [DllImport("kernel20230522.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void challengeOne([MarshalAs(UnmanagedType.LPArray, SizeConst = 17)] float[] data);
-
-        private (float[], float[], float) GetData()
+        private (float[], float[]) GetData()
         {
-            float[] data = new float[17];
-            challengeOne(data); //Get data by passing the float array by reference
+            float[] data = new float[16] { 1f, 2f, 3f, 4f, 5f, 6f, 7f, 8f, 1f, 2f, 3f, 4f, 5f, 6f, 7f, 8f }; //Test data
+            //TODO: Somehow obtain the data
 
-            float[] radii = data[0..7];
-            float[] periods = data[8..15];
-            float rSquared = data[16];
-            return (radii, periods, rSquared);
+            if (data.Length != 16)
+            {
+                MessageBox.Show("The data received from backend was not in a standard format", "Backend link error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            float[] radii = data[0..8];
+            float[] periods = data[8..16];
+            return (radii, periods);
         }
     }
 }
