@@ -18,6 +18,8 @@ namespace GUI
 
         private Dictionary<SolarSystemBody, bool> solarSystemBodies = new Dictionary<SolarSystemBody, bool>();
         private Command_OpenPlanetSelectionDialog Command_OpenPlanetSelectionDialog { get; } = new Command_OpenPlanetSelectionDialog();
+        CartesianChart graph;
+        Challenge1PlotViewModel viewModel;
 
         public Challenge1UserControl() : base("Graph to verify Keppler's 3rd Law") //Set title via constructor
         {
@@ -28,8 +30,8 @@ namespace GUI
 
         public void SetUpGraph()
         {
-            Challenge1PlotViewModel viewModel = new Challenge1PlotViewModel(solarSystemBodies);
-            CartesianChart graph = new CartesianChart();
+            viewModel = new Challenge1PlotViewModel(solarSystemBodies);
+            graph = new CartesianChart();
             graph.Series = viewModel.Series;
             graph.XAxes = new Axis[] { new Axis { Name = "(Semi-major axis a / AU)^3/2" } };
             graph.YAxes = new Axis[] { new Axis { Name = "(Orbital period P / Years" } };
@@ -67,6 +69,7 @@ namespace GUI
         private void PlanetsSelectButton_Click(object sender, RoutedEventArgs e)
         {
             MakePlanetSelectionAsync(); //Asynchronously wait for the user to make their planet selection. Handled by the below Async method
+            viewModel.UpdateSeries();
         }
 
         private async void MakePlanetSelectionAsync()
@@ -77,6 +80,7 @@ namespace GUI
         private void PlanetsResetButton_Click(object sender, RoutedEventArgs e)
         {
             InitialiseDictionary(); //Re-run the InitialiseDictionary method to reset all the values to true, selecting them all
+            viewModel.UpdateSeries();
         }
     }
 }

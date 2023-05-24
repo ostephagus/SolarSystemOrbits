@@ -14,15 +14,22 @@ namespace GUI
 
         private Dictionary<SolarSystemBody, bool> solarSystemBodies;
 
-        const int NUMBER_OF_PLANETS = 8;
+        private const int NUMBER_OF_PLANETS = 8;
+
+        private (float[], float[]) data;
 
         public ISeries[] Series { get => series; set => series = value; }
 
         public Challenge1PlotViewModel(Dictionary<SolarSystemBody, bool> solarSystemBodies)
         {
             this.solarSystemBodies = solarSystemBodies;
-            (float[] radii, float[] periods) = GetData();
-            series = GetSeries(radii, periods);
+            data = GetData();
+            series = GetSeries(data.Item1, data.Item2);
+        }
+
+        public void UpdateSeries()
+        {
+            series = GetSeries(data.Item1, data.Item2); //Updating does not require recalculation, just filtering of results.
         }
 
         private ISeries[] GetSeries(float[] xarr, float[] yarr)
