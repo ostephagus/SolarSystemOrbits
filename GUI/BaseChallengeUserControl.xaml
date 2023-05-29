@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -17,7 +18,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <local:ResizableCentredTextBox x:Name="TitleTextBox" Text="Placeholder title" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
-        <ContentControl Name="chartHolder" Grid.Row="1" Grid.Column="0" />
+        <lvc:CartesianChart Name="graph" Grid.Row="1" Grid.Column="0" Series="{Binding Series}"/>
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Name="optionsStackPanel">
             <local:ResizableCentredTextBox Text="Chart Options" />
             <Button Name="unitsSelectionButton">Select units</Button>

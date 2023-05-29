@@ -36,7 +36,7 @@ namespace GUI
 
         public ICommand Command_ChangeWindow { get; } = new Command_ChangeWindow();
 
-        private const int fontSizeDivisor = 50;
+        private const int fontSizeDivisor = 48;
 
         public HomeScreen()
         {
