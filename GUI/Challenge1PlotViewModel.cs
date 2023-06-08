@@ -91,6 +91,7 @@ namespace GUI
                     Name = "Line of Best fit",
                     GeometryFill = null,
                     GeometryStroke = null,
+                    GeometrySize = 0,
                     Fill = null,
                     Stroke = new SolidColorPaint(SKColors.Red, 3)
                 },
